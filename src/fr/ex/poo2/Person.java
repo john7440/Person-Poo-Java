@@ -62,8 +62,7 @@ public class Person {
 	
 	public void setAge(int age) {
 		if (age < 0) {
-			System.out.println("L'âge doit être positif! Valeur par défaut 0 (enfin 3 semaines plus exactement)");
-			this.age = 0;
+			this.age = -1;
 			
 		} else {
 			this.age = age;
@@ -93,14 +92,25 @@ public class Person {
 	
 	// methods
 	
-	public String toString() {
-		return "Prénom: " + getFirstName() + "\n" +
-			   "Nom: " + getLastName() + "\n" +
-			   "Age: " + getAge() + "\n" +
-			   "Adresse: " + getAddress() + "\n" +
-               "Ville de naissance: " + (birthCity != null ? birthCity.getCityName() : "Inconnue") + "\n" +
-               "Pays de naissance: " + (birthCity != null ? birthCity.getCountry() : "Inconnu") + "\n";
-	}
+    public String toString() {
+        String result = "Prénom: " + getFirstName() + "\n" +
+                        "Nom: " + getLastName() + "\n" +
+                        "Âge: " + getAge() + "\n" +
+                        "Adresse: " + getAddress() + "\n";
+
+        if (birthCity != null) {
+            result += "Ville de naissance: " + birthCity.getCityName() + "\n" +
+                      "Pays de naissance: " + birthCity.getCountry() + "\n";
+
+            if (birthCity.getNumberOfCitizen() >= 0) {
+                result += "Population de la ville: " + birthCity.getNumberOfCitizen() + "\n";
+            }
+        } else {
+            result += "Ville de naissance: Inconnue\n";
+        }
+
+        return result;
+    }
 
 
 
