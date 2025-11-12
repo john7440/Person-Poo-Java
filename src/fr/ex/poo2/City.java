@@ -1,33 +1,37 @@
 package fr.ex.poo2;
 
+/**
+ * Represents a city with a name, country, population, and a unique identifier
+ * Provides constructors for various levels of detail and methods to access and display city information
+ */
 public class City {
 
 	//   === Attributes ===
 	
-	// The name of the country where the city is located
+	/** The name of the country where the city is located */
 	protected String country;
 	
-	// Name of the city
+	/** The name of the city */
 	protected String cityName;
 	
-	// The number of citizens living in the city
+	/** The number of citizens living in the city (default is -1 if unknown) */
 	protected int numberOfCitizen = -1;
 	
-	// Unique ID for each city instance
+	/** Unique ID for each city instance */
 	protected int id;
 	
-	// Counter used to generate unique IDs
+	/** Static counter used to assign unique IDs */
 	protected static int nextId = 1;
 	
 	// === Constructors ===
 
-    /**
-     * Constructor with full parameters,
-     * it automatically assigns a unique ID to the city
+	/**
+     * Constructs a city with full details: country, name, and population
+     * Automatically assigns a unique ID to the city
      *
-     * @param country          the country name
-     * @param cityName         the city name
-     * @param numberOfCitizen  the number of citizens
+     * @param country the country where the city is located
+     * @param cityName the name of the city
+     * @param numberOfCitizen the number of citizens in the city
      */
 	public City(String country, String cityName, int numberOfCitizen) {
 
@@ -38,10 +42,11 @@ public class City {
 	}
 	
 	/**
-     * Constructor with default country set to "Unknown"
+     * Constructs a city with a name and population
+     * The country is set to "Inconnu" by default
      *
-     * @param cityName         the city name
-     * @param numberOfCitizen  the number of citizens
+     * @param cityName the name of the city
+     * @param numberOfCitizen the number of citizens in the city
      */
 	public City(String cityName, int numberOfCitizen) {
 		this.id = nextId++;
@@ -50,6 +55,13 @@ public class City {
 		setNumberOfCitizen(numberOfCitizen);
 	}
 	
+	/**
+     * Constructs a city with a name and country
+     * The population is set to -1 (unknown)
+     *
+     * @param country the country where the city is located
+     * @param cityName the name of the city
+     */
 	public City(String country, String cityName) {
 		this.id = nextId++;
 		setCountry(country);
@@ -57,6 +69,12 @@ public class City {
 		this.numberOfCitizen = -1;
 	}
 	
+	/**
+     * Constructs a city with only a name
+     * The country is set to "Unknown" and population to -1
+     *
+     * @param cityName the name of the city
+     */
 	public City(String cityName) {
         this.id = nextId++;
         this.country = "Unknown";
@@ -64,45 +82,67 @@ public class City {
         this.numberOfCitizen = -1;
     }
 	
-	
-	
 	// === Accessors ===
 
-    // Returns the unique ID of the city
+	/**
+     * Returns the unique ID of the city
+     *
+     * @return the city's ID
+     */
 	public int getId() {
         return id;
     }
 	
-	// Returns the country name
+	/**
+     * Returns the country where the city is located
+     *
+     * @return the country name
+     */
 	public String getCountry() {
 		return country;
 	}
 	
-	// Sets the country name
+	/**
+     * Sets the country where the city is located
+     *
+     * @param country the country name to set
+     */
 	public void setCountry(String country) {
 		this.country = country;
 	}
 	
-	// Returns the city name
+	/**
+     * Returns the name of the city
+     *
+     * @return the city name
+     */
 	public String getCityName() {
 		return cityName;
 	}
 	
-	// Sets the city name
+	/**
+     * Sets the name of the city
+     *
+     * @param cityName the city name to set
+     */
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
 	
-	// Returns the number of citizens
+	/**
+     * Returns the number of citizens in the city
+     *
+     * @return the number of citizens
+     */
 	public int getNumberOfCitizen() {
 		return numberOfCitizen;
 	}
 	
 	/**
-     * Sets the number of citizens,
-     * if the value is negative, it defaults to 0 and displays a warning message
+     * Sets the number of citizens in the city.
+     * If the value is negative, it defaults to -1 and displays a warning.
      *
-     * @param numberOfCitizen the number of citizens
+     * @param numberOfCitizen the number of citizens to set
      */
 	public void setNumberOfCitizen(int numberOfCitizen) {
 		if (numberOfCitizen < 0) {
@@ -139,9 +179,9 @@ public class City {
 	    public String toString() {
 	        String result = cityName + " est une ville";
 	        if (numberOfCitizen >= 0) {
-	            result += " de " + numberOfCitizen + " habitans";
+	            result += " de " + numberOfCitizen + " habitants";
 	        }
-	        result += " située en " + country + ".";
+	        result += " située en " + country + "\n";
 	        return result;
 	    }
 

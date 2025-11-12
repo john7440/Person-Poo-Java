@@ -1,8 +1,18 @@
 package fr.ex.poo2;
 import java.util.ArrayList;
 
+/**
+ * TestPerson is a test class used to demonstrate the creation and filtering of Person objects
+ * It creates several instances of Person, displays them, and filters those born in France
+ */
 public class TestPerson {
 
+	/**
+     * The main method executes the test scenario
+     * It creates a list of Person objects, displays them, and filters those born in France
+     *
+     * @param args command-line arguments (not used in this case)
+     */
 	public static void main(String[] args) {
 	
 		// Personalities list
