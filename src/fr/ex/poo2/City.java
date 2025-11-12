@@ -11,7 +11,7 @@ public class City {
 	protected String cityName;
 	
 	// The number of citizens living in the city
-	protected int numberOfCitizen;
+	protected int numberOfCitizen = -1;
 	
 	// Unique ID for each city instance
 	protected int id;
@@ -54,8 +54,15 @@ public class City {
 		this.id = nextId++;
 		setCountry(country);
 		setCityName(cityName);
-		this.numberOfCitizen = 0;
+		this.numberOfCitizen = -1;
 	}
+	
+	public City(String cityName) {
+        this.id = nextId++;
+        this.country = "Unknown";
+        this.cityName = cityName;
+        this.numberOfCitizen = -1;
+    }
 	
 	
 	
@@ -99,8 +106,8 @@ public class City {
      */
 	public void setNumberOfCitizen(int numberOfCitizen) {
 		if (numberOfCitizen < 0) {
-			System.out.println("Il ne peut pas y avoir - de 0 habitants ! Valeurs par défaut mise à 0");
-			this.numberOfCitizen = 0;
+			System.out.println("Il ne peut pas y avoir - de 0 habitants ! Valeur par défaut");
+			this.numberOfCitizen = -1;
 		} else {
 			this.numberOfCitizen = numberOfCitizen;
 		}
@@ -114,9 +121,11 @@ public class City {
      * Displays the city's information in a formatted sentence
      */
 	public void display() {
-		System.out.println(getCityName()+ " est une ville de " + 
-						   getNumberOfCitizen() + " située en " + 
-						   getCountry() );
+		System.out.println(getCityName()+ " est une ville");
+							if (numberOfCitizen >= 0) {
+									System.out.print(" de" + numberOfCitizen + " habitants");
+							}
+							System.out.println(" situé en " + country + "\n");
 	}
 	
 	/**
@@ -126,11 +135,14 @@ public class City {
      * 
      */
 	
-	@Override
-    public String toString() {
-		return "Ville de naissance: " + getCityName() + "\n" +
-			   "Pays: " + getCountry() + "\n";  
-			  		
-	}
+	 @Override
+	    public String toString() {
+	        String result = cityName + " est une ville";
+	        if (numberOfCitizen >= 0) {
+	            result += " de " + numberOfCitizen + " habitans";
+	        }
+	        result += " située en " + country + ".";
+	        return result;
+	    }
 
 }
