@@ -2,35 +2,37 @@ package fr.ex.poo2;
 
 public class Person {
 	
-	
 	// ==== Attributes===
 	
 	private String firstName;
 	private String lastName;
 	private int age;
 	private String address;
+	private City birthCity;
 	
 	// == Constructors ==
 	
-	public Person(String firstName, String lastName, int age, String address) {
+	public Person(String firstName, String lastName, int age, String address, City birthCity) {
 		setFirstName(firstName);
 		setLastName(lastName);
 		setAge(age);
 		setAddress(address);
+		this.birthCity = birthCity;
+			
 	}
 	
 	public Person(String firstName, String lastName, int age) {
 		setFirstName(firstName);
 		setLastName(lastName);
 		setAge(age);
-		this.address = "Unknown";
+		this.address = "Inconnue";
 	}
 	
 	public Person(String firstName, String lastName) {
 		setFirstName(firstName);
 		setLastName(lastName);
 		this.age = 0;
-		this.address = "Unknown";
+		this.address = "Inconnue";
 	}
 	
 	// -- Accessors--
@@ -78,14 +80,28 @@ public class Person {
 		this.address = address;
 	}
 	
+	// for the birth city
+	public City getBirthCity() {
+        return birthCity;
+    }
+
+    public void setBirthCity(City birthCity) {
+        this.birthCity = birthCity;
+    }
+
+	
+	
 	// methods
 	
 	public String toString() {
 		return "Prénom: " + getFirstName() + "\n" +
 			   "Nom: " + getLastName() + "\n" +
 			   "Age: " + getAge() + "\n" +
-			   "Adresse: " + getAddress(); 
+			   "Adresse: " + getAddress() + "\n" +
+               "Ville de naissance: " + (birthCity != null ? birthCity.getCityName() : "Inconnue") + "\n" +
+               "Pays de naissance: " + (birthCity != null ? birthCity.getCountry() : "Inconnu") + "\n";
 	}
-	
+
+
 
 }
