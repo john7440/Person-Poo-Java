@@ -19,6 +19,20 @@ public class Person {
 		setAddress(address);
 	}
 	
+	public Person(String firstName, String lastName, int age) {
+		setFirstName(firstName);
+		setLastName(lastName);
+		setAge(age);
+		this.address = "Unknown";
+	}
+	
+	public Person(String firstName, String lastName) {
+		setFirstName(firstName);
+		setLastName(lastName);
+		this.age = 0;
+		this.address = "Unknown";
+	}
+	
 	// -- Accessors--
 	
 	// For the first name
@@ -64,6 +78,14 @@ public class Person {
 		this.address = address;
 	}
 	
+	// methods
+	
+	public String toString() {
+		return "Prénom: " + getFirstName() + "\n" +
+			   "Nom: " + getLastName() + "\n" +
+			   "Age: " + getAge() + "\n" +
+			   "Adresse: " + getAddress(); 
+	}
 	
 
 }
