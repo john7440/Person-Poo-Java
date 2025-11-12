@@ -17,8 +17,7 @@ public class Person {
 		setLastName(lastName);
 		setAge(age);
 		setAddress(address);
-		this.birthCity = birthCity;
-			
+		this.birthCity = birthCity;	
 	}
 	
 	public Person(String firstName, String lastName, int age) {
@@ -95,7 +94,7 @@ public class Person {
     public String toString() {
         String result = "Prénom: " + getFirstName() + "\n" +
                         "Nom: " + getLastName() + "\n" +
-                        "Âge: " + getAge() + "\n" +
+                        "Age: " + getAge() + "\n" +
                         "Adresse: " + getAddress() + "\n";
 
         if (birthCity != null) {
@@ -111,7 +110,5 @@ public class Person {
 
         return result;
     }
-
-
 
 }
