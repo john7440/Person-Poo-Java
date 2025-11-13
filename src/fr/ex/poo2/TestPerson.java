@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 /**
  * TestPerson is a test class used to demonstrate the creation and filtering of Person objects
- * It creates several instances of Person, displays them, and filters those born in France
+ * We use it to create instances of Person, displays them, and filters those born in France
  */
 public class TestPerson {
 
@@ -23,21 +23,6 @@ public class TestPerson {
 		Person theo = new Person("Theo", "Sahrane", 25, "[Censored]", new City("France", "Dans un chou"));
 		Person jonathan = new Person("Jonathan", "Maier", 36, "Saint-Paul", new City("Autriche", "Hong-Kong"));
 		
-		
-		
-		// Initial Display
-		System.out.println("\n===========================");
-		System.out.println("      Liste initiale ");
-		System.out.println("===========================\n");
-		System.out.println(manu);
-		System.out.println(mor);
-		System.out.println(potter);
-		System.out.println(sarko);
-		System.out.println(theo);
-		System.out.println(jonathan);
-		System.out.println("----------------------------");
-		
-		
 		// ArrayList of Persons to filter them
 		ArrayList<Person> personOfInterest = new ArrayList<>();
 		personOfInterest.add(manu);
@@ -46,6 +31,18 @@ public class TestPerson {
 		personOfInterest.add(sarko);
 		personOfInterest.add(theo);
 		personOfInterest.add(jonathan);
+		
+		// Initial Display
+		System.out.println("\n===========================");
+		System.out.println("      Liste initiale ");
+		System.out.println("===========================\n");
+		for (Person person: personOfInterest) {
+			System.out.println(person);
+		}
+		System.out.println("----------------------------");
+		
+		
+		
 		
 		//Filtered display
 		System.out.println("\n===========================");
